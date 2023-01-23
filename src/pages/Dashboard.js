@@ -2,7 +2,7 @@ import { Box } from '@mui/system'
 import React from 'react'
 import { Button,IconButton,Typography, useTheme } from '@mui/material'
 import { tokens } from '../Theme'
-import { mockTransactions as data, mockTransactions } from '../data/mockData'
+import { mockTransactions } from '../data/mockData'
 import Header from "../components/Common/Header"
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
