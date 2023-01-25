@@ -11,7 +11,13 @@ const Pie = () => {
   return (
     <Box m="20px">
     <Header title="Pie Chart" subtitle=" Simple Pie Chart" />
-<Box height="70vh">
+    <Box overflow="scroll" height="100vh">
+<Box  height="75vh"
+        sx={{
+          '@media(max-width: 600px)': {
+            width: '100vh'
+          }
+        }}>
 <ResponsivePie
       data={data}
       theme={{
@@ -108,6 +114,7 @@ const Pie = () => {
         },
       ]}
     />
+</Box>
 </Box>
 </Box>
   )

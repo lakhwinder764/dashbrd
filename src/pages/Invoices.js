@@ -26,6 +26,7 @@ const Invoices = () => {
   return (
       <Box m="20px">
       <Header title="INVOICES" subtitle="List of Invoice for future reference"/>
+      <Box overflow="scroll">
       <Box 
       m="40px 0 0 0 " 
       height="75vh" 
@@ -60,6 +61,7 @@ const Invoices = () => {
        columns={columns}
 
       />
+      </Box>
       </Box>
     </Box>
   )

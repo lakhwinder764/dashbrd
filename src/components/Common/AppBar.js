@@ -8,14 +8,29 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
-const Topbar = () => {
+const Topbar = ({setdisp, disp}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
+      <Box
+      sx={{
+      '@media(min-width: 600px)':{
+        display:'none',
+      }
+      }}
+      >
+      <IconButton 
+      type="button" 
+      sx={{ p: 1 }} 
+        onClick={() => setdisp(!disp)}>
+          <MenuOutlinedIcon />
+      </IconButton>
+      </Box>
       {/* SEARCH BAR */}
       <Box
         display="flex"

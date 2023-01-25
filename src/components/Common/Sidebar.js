@@ -31,15 +31,18 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({disp}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
-
   return (
     <Box
       sx={{
+        '@media(max-width: 600px)':{
+          width: 80,
+          ...(disp ? ({display: 'none'}) : ({display:'block'})),
+        },
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },

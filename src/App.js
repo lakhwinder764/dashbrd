@@ -21,6 +21,7 @@ import { Route, Routes } from 'react-router-dom';
 const App = () => {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const [disp,setdisp] = useState(true);
   return (
     <ColorModeContext.Provider value={colorMode}>
 
@@ -28,13 +29,13 @@ const App = () => {
       <ThemeProvider theme={theme}>
 <CssBaseline/>
 <div className="app">
-  <Sidebar isSidebar={isSidebar}/>
+  <Sidebar isSidebar={isSidebar} disp={disp}/>
 <main className="content">
-  <AppBar setIsSidebar={setIsSidebar}/>
+  <AppBar setIsSidebar={setIsSidebar} setdisp={setdisp} disp={disp}/>
   
   <Routes>
     <Route path="/" element={<Dashboard/>}/>
-    <Route path="/bar" element={<Bar/>}/> */}
+    <Route path="/bar" element={<Bar/>}/>
     <Route path="/contacts" element={<Contacts/>}/>
     <Route path="/faq" element={<Faq/>}/>
     <Route path="/form" element={<Form/>}/>

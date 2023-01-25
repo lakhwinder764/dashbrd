@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import React from 'react'
-import { Button,IconButton,Typography, useTheme } from '@mui/material'
+import { Button,IconButton,Typography, useTheme, Grid } from '@mui/material'
 import { tokens } from '../Theme'
 import { mockTransactions } from '../data/mockData'
 import Header from "../components/Common/Header"
@@ -20,23 +20,22 @@ const Dashboard = () => {
   const colors=tokens(theme.palette.mode);
   return (
     <Box m="20px">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box display="flex" justifyContent="space-between" flexWrap="wrap">
       <Header title="DASHBOARD" subtitle="Welcome to your dashboard"/>
     
-      <Box>
+      <Box mb={2}>
         <Button sx={{backgroundColor: colors.blueAccent[700], color: colors.grey[100], fontSize: "14px", fontWeight:"bold", padding: "10px 20px "}}>
         <DownloadOutlinedIcon sx={{mr: "10px"}}/>
         DownLoad Reports
         </Button>
       </Box>
       </Box>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="20px"
+      <Grid
+        container
+        spacing={2}
      >
-      <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+      <Grid item xs={12} sm={12} md={3}>
+      <Box backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
      <StatBox
         title="12,361"
         subtitle="Emails Sent"
@@ -46,9 +45,10 @@ const Dashboard = () => {
         <EmailIcon sx={{color: colors.greenAccent[600], fontSize:"26px"}}/>
        }
      />
-
       </Box>
-      <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+      </Grid>
+      <Grid item xs={12} sm={12} md={3}>
+      <Box backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
      <StatBox
         title="431,225"
         subtitle=" Sales Obtained"
@@ -58,10 +58,10 @@ const Dashboard = () => {
         <PointOfSaleIcon sx={{color: colors.greenAccent[600], fontSize:"26px"}}/>
        }
      />
-
       </Box>
-
-      <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+</Grid>
+<Grid item xs={12} sm={12} md={3}>
+      <Box backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
      <StatBox
         title="32,441"
         subtitle="New Clients"
@@ -71,9 +71,10 @@ const Dashboard = () => {
         <PersonAddIcon sx={{color: colors.greenAccent[600], fontSize:"26px"}}/>
        }
      />
-
       </Box>
-      <Box gridColumn="span 3" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+      </Grid>
+      <Grid item xs={12} sm={12} md={3}>
+      <Box backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
      <StatBox
         title="1,325"
         subtitle="Traffic Inbound"
@@ -83,8 +84,9 @@ const Dashboard = () => {
         <TrafficIcon sx={{color: colors.greenAccent[600], fontSize:"26px"}}/>
        }
      />
-
       </Box>
+      </Grid>
+      <Grid item xs={12} sm={12} md={8}>
   <Box
   gridColumn="span 8"
   gridRow="span 2"
@@ -110,7 +112,9 @@ const Dashboard = () => {
       <LineChart isDashboard={true}/>
     </Box>
     </Box>
-    <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto">
+    </Grid>
+    <Grid item xs={12} sm={12} md={4}>
+    <Box backgroundColor={colors.primary[400]} overflow="auto" height="42vh" mt={3}>
 <Box display="flex" justifyContent="space-between" alignItems="center" borderBottom={`4px solid ${colors.primary[500]}`} color={colors.grey[100]} p="15px">
 <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
   Recent Transactions
@@ -143,9 +147,9 @@ const Dashboard = () => {
     </Box>
 ))}
     </Box>
+    </Grid>
+    <Grid item xs={12} sm={12} md={4}>
     <Box 
-    gridColumn="span 4"
-    gridRow="span 2"
     backgroundColor={colors.primary[400]}
     p="30px"
     >
@@ -162,9 +166,9 @@ const Dashboard = () => {
       </Typography>
       </Box>
       </Box>
+    </Grid>
+    <Grid item xs={12} sm={12} md={4}>
       <Box 
-    gridColumn="span 4"
-    gridRow="span 2"
     backgroundColor={colors.primary[400]}
     >
       <Typography variant="h5" fontWeight="600" sx={{p:"30px 30px 0px 30px "}}>
@@ -174,9 +178,9 @@ const Dashboard = () => {
       <BarChart isDashboard={true}/>
       </Box>
       </Box>
+</Grid>
+<Grid item xs={12} sm={12} md={4}>
       <Box 
-    gridColumn="span 4"
-    gridRow="span 2"
     backgroundColor={colors.primary[400]}
     p="30px"
     >
@@ -187,9 +191,9 @@ const Dashboard = () => {
       <GeographyChart isDashboard={true}/>
       </Box>
       </Box>
+  </Grid>
+  </Grid>
   </Box>
-
-    </Box>
   )
 }
 

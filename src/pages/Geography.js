@@ -10,11 +10,19 @@ const Geography = () => {
   return (
     <Box m="20px">
         <Header title="Geographic Chart" subtitle=" Simple Geographic Chart" />
+        <Box overflow="scroll" height="100vh">
     <Box         
-        height="75vh"
         border={`1px solid ${colors.grey[100]}`}
-        borderRadius="4px">
+        borderRadius="4px"
+        height="75vh"
+        sx={{
+          '@media(max-width: 600px)': {
+            width: '100vh'
+          }
+        }}
+        >
    <GeoChart />
+    </Box>
     </Box>
     </Box>
   )
